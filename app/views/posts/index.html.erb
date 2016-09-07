@@ -1,0 +1,11 @@
+<% if current_user%>
+<%= @posts.each do |i| %>
+	<div class ="white">
+		<%=image_tag i.images.url(:medium) %>
+		<br>
+		<%= i.description %>
+	</div>
+<%end%>
+<% else %>
+<%= render "posts/notlogged" %>
+<% end %>
