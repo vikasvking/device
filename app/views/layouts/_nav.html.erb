@@ -17,15 +17,20 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
-                        <%link_to "New Post" ,new_post_path%>
+                       
+                        <%=link_to "New Post" , new_post_path %>
+                    </li>
+                    <%- if current_user%>
+                    <li><%=link_to "logout", destroy_user_session_path,method: :delete,confirm: "Are yo sure"%></li>
+                    <% else %>
+                    <li>
+                        <%= link_to"Login",new_user_session_path%>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <%=link_to "Register", new_user_registration_path %>
                     </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+                    <%end%>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
